@@ -16,7 +16,10 @@ namespace TEST
             //CreateHostBuilder(args).Build().Run();
             XMLAPI xMLAPI = new XMLAPI();
             xMLAPI.makePokemonFile();
+            xMLAPI.postPokemon();
             xMLAPI.getPokemon();
+            xMLAPI.updatePokemon();
+            xMLAPI.deletePokemon();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
