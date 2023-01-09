@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace TEST.Models
 {
-    public class Trainer
+    public class PokemonModel
     {
         public string Name { get; set; }
-        public int Age { get; set; }
+        public string Type { get; set; }
     }
 }

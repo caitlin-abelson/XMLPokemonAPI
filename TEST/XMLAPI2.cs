@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
+using TEST.Models;
 
 namespace TEST
 {
@@ -24,15 +24,16 @@ namespace TEST
             xmlTextWriter.Close();
         }
 
-        public void postPokemon(string name)
+        public void postPokemon(PokemonModel pokemonModel, Trainer trainer)
         {
             XmlDocument xmlDocument = new XmlDocument();
             FileStream fileStream = new FileStream(filepath, FileMode.Open);
             xmlDocument.Load(fileStream);
             XmlElement xmlElementNodeOne = xmlDocument.CreateElement("Trainer");
-            xmlElementNodeOne.SetAttribute("Name", "Red");
+            xmlElementNodeOne.SetAttribute(trainer.Name, trainer.Age.ToString());
             XmlElement xmlElementNodeTwo = xmlDocument.CreateElement("Pokeman");
-            XmlText natext = xmlDocument.CreateTextNode("Geodude,Ground");
+            string pokemon = pokemonModel.Name + "," + pokemonModel.Type;
+            XmlText natext = xmlDocument.CreateTextNode(pokemon);
             //Appending the text to the second node {Pokeman.AppendChild("Geodude")}
             xmlElementNodeTwo.AppendChild(natext);
             //Appending the first node to the second node {Trainer.AppendChild("Pokeman")}
